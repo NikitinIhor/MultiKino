@@ -1,0 +1,17 @@
+.card {
+  width: 300px;
+  border-radius: 8px;
+  border: 1px solid black;
+  box-shadow: 5px 5px 4px rgb(83, 83, 83);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+.title {
+  padding: 10px;
+  font-size: 14px;
+  background-color: rgb(195, 195, 195);
+}
