@@ -13,15 +13,16 @@ export default function HomePage() {
   const [page, setPage] = useState(1);
 
   const addPage = () => {
-    setPage(page + 1);
+    setPage((prevPage) => prevPage + 1);
   };
 
   useEffect(() => {
     async function fetchData() {
+      SetLoading(true);
+      SetError(false);
       try {
-        SetLoading(true);
-        SetError(false);
         const data = await getMovies(page);
+
         setMovies((prevMovies) => {
           return [...prevMovies, ...data.results];
         });

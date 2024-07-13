@@ -1,0 +1,18 @@
+.goBack {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  margin: 10px 0 0 20px;
+  border: 1px solid black;
+  padding: 5px 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  background-color: rgb(221, 233, 221);
+  transition: all 0.4s ease;
+}
+.goBack:hover {
+  transform: scale(0.95);
+  box-shadow: -2px -2px 2px black;
+}

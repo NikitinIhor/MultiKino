@@ -5,16 +5,17 @@
   background-color: rgb(166, 239, 166);
   border-bottom: 1px solid black;
 }
-.nav {
+.list {
   padding-left: 20px;
+  font-size: 20px;
   display: flex;
   gap: 15px;
-  font-size: 20px;
 }
 .link {
   color: rgb(43, 43, 43);
   letter-spacing: 0.1em;
 }
+
 .isActive {
   color: red;
   text-decoration: underline;

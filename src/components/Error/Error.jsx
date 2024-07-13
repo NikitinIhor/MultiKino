@@ -1,6 +1,6 @@
-import css from "./Error.module.css";
 import { FaRegSadTear } from "react-icons/fa";
 import { IconContext } from "react-icons";
+import css from "./Error.module.css";
 
 export default function Error() {
   return (

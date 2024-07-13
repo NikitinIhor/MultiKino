@@ -8,13 +8,31 @@ axios.defaults.headers.common["Authorization"] = `Bearer ${TOKEN}`
 
 
 export async function getMovies(newPage) {
-    const res = await axios.get(`/trending/movie/day?language=en-US&page=${newPage}&`)
+    const res = await axios.get(`/trending/movie/day?language=en-US&page=${newPage}`)
     return res.data
 }
 
 export async function getMovie(movieId) {
-    const res = await axios.get(`/movie/movie/movie_id=${movieId}?language=en-US`)
-    console.log(res.data);
+    const res = await axios.get(`/movie/${movieId}?language=en-US`)
+    return res.data
+}
+
+export async function searchMovies(query) {
+    const res = await axios.get(`/search/movie?include_adult=false&language=en-US&page=1`, {
+        params: {
+            query,
+        }
+    })
+    return res.data
+}
+
+export async function getMovieAuthor(movieId) {
+    const res = await axios.get(`/movie/${movieId}/credits?language=en-US`)
+    return res.data.cast
+}
+
+export async function getMovieReviews(movieId) {
+    const res = await axios.get(`movie/${movieId}/reviews?language=en-US`)
     return res.data
 }
 
