@@ -19,6 +19,7 @@ export default function MovieReviews() {
 
         setReviews(data.results);
       } catch (error) {
+        console.log(`Error getMovieReviews : ${error}`);
         setError(true);
       } finally {
         setLoading(false);

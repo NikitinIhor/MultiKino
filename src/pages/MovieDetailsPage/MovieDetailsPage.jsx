@@ -9,7 +9,7 @@ import css from "./MovieDetailsPage.module.css";
 
 export default function MovieDetailsPage() {
   const location = useLocation();
-  const backLinkLocation = location.state ?? "/movies";
+  const backLinkLocation = location?.state?.from ?? "/movies";
 
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
@@ -25,6 +25,7 @@ export default function MovieDetailsPage() {
 
         setMovie(data);
       } catch (error) {
+        console.log(`Error fetchMovie : ${error}`);
         setError(true);
       } finally {
         setLoading(false);

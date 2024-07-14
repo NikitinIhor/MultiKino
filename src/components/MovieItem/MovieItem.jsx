@@ -7,7 +7,7 @@ export default function MovieItem({ data: { id, title, backdrop_path } }) {
   const location = useLocation();
 
   return (
-    <Link to={`/movies/${id}`} state={location}>
+    <Link to={`/movies/${id}`} state={{ from: location }}>
       <div className={css.card}>
         <h2 className={css.title}>{title}</h2>
         <div>

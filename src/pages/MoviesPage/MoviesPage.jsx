@@ -5,37 +5,42 @@ import SearchMovie from "../../components/SearchMovie/SearchMovie";
 import MovieList from "../../components/MovieList/MovieList";
 import Loader from "../../components/Loader/Loader";
 import Error from "../../components/Error/Error";
+import { useSearchParams } from "react-router-dom";
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState("");
-  const [error, SetError] = useState(false);
-  const [loading, SetLoading] = useState(false);
+  // const [query, setQuery] = useState("");
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams("");
 
   const onSubmit = (film) => {
-    setQuery(film.text);
+    setSearchParams({ query: film.text });
   };
 
   useEffect(() => {
+    const query = searchParams.get("query");
     if (!query) return;
     async function fetchMovies() {
-      SetLoading(true);
-      SetError(false);
+      setLoading(true);
+      setError(false);
+
       try {
         const data = await searchMovies(query);
         if (data.results.length === 0) {
           toast("No movies found");
+        } else {
+          setMovies(data.results);
         }
-        setMovies(data.results);
       } catch (error) {
-        SetError(true);
+        setError(true);
         toast(error.message);
       } finally {
-        SetLoading(false);
+        setLoading(false);
       }
     }
     fetchMovies();
-  }, [query]);
+  }, [searchParams]);
 
   return (
     <div>

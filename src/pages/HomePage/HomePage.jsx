@@ -27,6 +27,7 @@ export default function HomePage() {
           return [...prevMovies, ...data.results];
         });
       } catch (error) {
+        console.log(`Error getMovies(page) : ${error}`);
         SetError(true);
       } finally {
         SetLoading(false);

@@ -20,6 +20,7 @@ export default function MovieCast() {
         const data = await getMovieAuthor(movieId);
         setCasts(data);
       } catch (error) {
+        console.log(`Error getMovieAuthor : ${error}`);
         setError(true);
       } finally {
         setLoading(false);
