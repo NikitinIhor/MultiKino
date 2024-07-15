@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { getMovie } from "../../API/getFilms";
 import Loader from "../../components/Loader/Loader";
@@ -9,7 +9,7 @@ import css from "./MovieDetailsPage.module.css";
 
 export default function MovieDetailsPage() {
   const location = useLocation();
-  const backLinkLocation = location?.state?.from ?? "/movies";
+  const backLinkLocationRef = useRef(location?.state?.from ?? "/movies");
 
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
@@ -36,7 +36,7 @@ export default function MovieDetailsPage() {
 
   return (
     <>
-      <Link to={backLinkLocation}>
+      <Link to={backLinkLocationRef.current}>
         <div className={css.goBack}>
           <FaArrowRotateLeft />
           <p>Go back</p>
