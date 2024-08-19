@@ -6,3 +6,10 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin-bottom: 50px;
 }
+@media screen and (max-width: 635px) {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

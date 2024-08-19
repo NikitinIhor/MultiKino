@@ -11,3 +11,12 @@
   color: red;
   letter-spacing: 0.2em;
 }
+@media screen and (max-width: 635px) {
+  .text {
+    font-size: 20px;
+    letter-spacing: 0.1em;
+  }
+  .logo {
+    gap: 5px;
+  }
+}

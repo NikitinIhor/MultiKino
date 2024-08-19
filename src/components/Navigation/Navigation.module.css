@@ -20,3 +20,8 @@
   color: red;
   text-decoration: underline;
 }
+@media screen and (max-width: 635px) {
+  .list {
+    font-size: 18px;
+  }
+}

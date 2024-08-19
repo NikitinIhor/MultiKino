@@ -3,3 +3,9 @@
   font-size: 35px;
   color: green;
 }
+@media screen and (max-width: 635px) {
+  .title {
+    font-size: 30px;
+    text-align: center;
+  }
+}
